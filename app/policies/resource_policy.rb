@@ -1,12 +1,8 @@
-class TopicPolicy < ApplicationPolicy
+class ResourcePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
-  end
-
-  def index
-    true
   end
 
   def new?
@@ -15,14 +11,6 @@ class TopicPolicy < ApplicationPolicy
 
   def create?
     true
-  end
-
-  def show?
-    true
-  end
-
-  def update?
-    user_is_creator?
   end
 
   def destroy?
