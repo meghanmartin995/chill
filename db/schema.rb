@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_164208) do
+ActiveRecord::Schema.define(version: 2020_05_07_201902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 2020_05_07_164208) do
     t.bigint "topic_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["topic_id"], name: "index_resources_on_topic_id"
+    t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
   create_table "todos", force: :cascade do |t|
@@ -32,7 +34,9 @@ ActiveRecord::Schema.define(version: 2020_05_07_164208) do
     t.bigint "topic_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["topic_id"], name: "index_todos_on_topic_id"
+    t.index ["user_id"], name: "index_todos_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -40,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_164208) do
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,5 +61,8 @@ ActiveRecord::Schema.define(version: 2020_05_07_164208) do
   end
 
   add_foreign_key "resources", "topics"
+  add_foreign_key "resources", "users"
   add_foreign_key "todos", "topics"
+  add_foreign_key "todos", "users"
+  add_foreign_key "topics", "users"
 end

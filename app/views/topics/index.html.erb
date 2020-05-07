@@ -1,8 +1,12 @@
 <h1>Topics</h1>
 
 <ul>
-  <% @topics.each do |topic| %>
+  <% if current_user.topics.blank? %>
+    add a topic
+  <% else %>
+  <% current_user.topics.each do |topic| %>
     <li><%= link_to topic.title, topic_path(topic) %></li>
+  <% end %>
   <% end %>
 </ul>
 
