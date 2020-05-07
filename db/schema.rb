@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_164208) do
     t.integer "hours"
     t.string "link"
     t.string "title"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.bigint "topic_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
