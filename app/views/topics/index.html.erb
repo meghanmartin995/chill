@@ -5,3 +5,8 @@
     <li><%= link_to topic.title, topic_path(topic) %></li>
   <% end %>
 </ul>
+
+<%= simple_form_for @topic, remote: true do |f| %>
+  <%= f.input :title %>
+  <%= f.button :submit %>
+<% end %>

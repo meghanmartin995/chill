@@ -10,7 +10,22 @@
   <% end %>
 </div>
 
+<div id="todos">
+  <% if @topic.todos.blank? %>
+    add a todo
+  <% else %>
+    <% @topic.todos.each do |todo| %>
+      <p><%= todo.title %></p>
+    <% end %>
+  <% end %>
+</div>
+
 <%= simple_form_for([ @topic, @resource ], remote: true) do |f| %>
+  <%= f.input :title %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= simple_form_for([ @topic, @todo ], remote: true) do |f| %>
   <%= f.input :title %>
   <%= f.button :submit %>
 <% end %>
