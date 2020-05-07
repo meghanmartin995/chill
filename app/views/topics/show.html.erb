@@ -9,3 +9,8 @@
     <% end %>
   <% end %>
 </div>
+
+<%= simple_form_for([ @topic, @resource ]) do |f| %>
+  <%= f.input :title %>
+  <%= f.button :submit %>
+<% end %>
