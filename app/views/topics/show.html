@@ -1,0 +1,11 @@
+<h1><%= @topic.title %></h1>
+
+<div id="topics">
+  <% if @topics.resources.blank? %>
+    add a resource
+  <% else %>
+    <% @topics.resources.each do |resource| %>
+      <p><%= resource.title %></p>
+    <% end %>
+  <% end %>
+</div>
