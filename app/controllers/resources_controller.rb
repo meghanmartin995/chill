@@ -10,6 +10,13 @@ class ResourcesController < ApplicationController
     end
   end
 
+  def destroy
+    @resource = Resource.find(params[:id])
+    @resource.destroy
+    @topic = @resource.topic
+    redirect_to topic_path(@topic)
+  end
+
   private
 
   def resource_params

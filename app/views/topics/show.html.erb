@@ -6,6 +6,9 @@
   <% else %>
     <% @topic.resources.each do |resource| %>
       <p><%= resource.title %></p>
+        <p><%= button_to "x", resource_path(resource),
+              method: :delete,
+              data: { remote: true } %></p>
     <% end %>
   <% end %>
 </div>
@@ -16,6 +19,13 @@
   <% else %>
     <% @topic.todos.each do |todo| %>
       <p><%= todo.title %></p>
+        <p><%= button_to "x", todo_path(todo),
+        method: :delete,
+        data: { remote: true } %></p>
+        <%= simple_form_for todo, remote: true do |f| %>
+          <%= f.check_box :completed %>
+          <%= f.button :submit %>
+        <% end %>
     <% end %>
   <% end %>
 </div>
