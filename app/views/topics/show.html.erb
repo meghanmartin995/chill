@@ -1,16 +1,17 @@
 <h1><%= @topic.title %></h1>
 
 <div id="topics">
-  <% if @topics.resources.blank? %>
+  <% if @topic.resources.blank? %>
     add a resource
   <% else %>
-    <% @topics.resources.each do |resource| %>
+    <% @topic.resources.each do |resource| %>
       <p><%= resource.title %></p>
     <% end %>
   <% end %>
 </div>
 
-<%= simple_form_for([ @topic, @resource ]) do |f| %>
+<%= simple_form_for([ @topic, @resource ], remote: true) do |f| %>
   <%= f.input :title %>
   <%= f.button :submit %>
 <% end %>
+

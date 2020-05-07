@@ -2,7 +2,7 @@ class ResourcesController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     @resource = Resource.new(resource_params)
-    @resouce.topic = @topic
+    @resource.topic = @topic
     if @resource.save
       redirect_to topic_path(@topic)
     else
@@ -13,6 +13,6 @@ class ResourcesController < ApplicationController
   private
 
   def resource_params
-    params.require(:resouce).permit(:title)
+    params.require(:resource).permit(:title, :topic_id)
   end
 end

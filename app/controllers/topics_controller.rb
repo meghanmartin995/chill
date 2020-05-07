@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topics = Topic.find(params[:id])
+    @topic = Topic.find(params[:id])
     @resource = Resource.new
   end
 end
