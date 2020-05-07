@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :topics, only: [ :index, :show, ] do
     resources :resources, only: :create
+    resources :todos, only: :create
   end
 end
