@@ -1,0 +1,20 @@
+.topics {
+  display: grid;
+  margin: 0 auto;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 32px;
+
+}
+.topic {
+  font-weight: bold;
+  color: $black;
+  padding: 78px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.topic:hover {
+  text-decoration: none;
+  color: $black;
+}

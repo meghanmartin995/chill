@@ -1,16 +1,32 @@
-<h1>Topics</h1>
+<section class="topics">
+  <button type="button" class="topic" data-toggle="modal" data-target="#exampleModalCenter">+</button>
+    <% if current_user.topics %>
+      <% current_user.topics.each do |topic| %>
+        <%= link_to topic_path(topic) do %>
+          <p class="topic" style="background-color: <%= topic.color %>"><%= topic.title %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+</section>
 
-<ul>
-  <% if current_user.topics.blank? %>
-    add a topic
-  <% else %>
-  <% current_user.topics.each do |topic| %>
-    <li><%= link_to topic.title, topic_path(topic) %></li>
-  <% end %>
-  <% end %>
-</ul>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content container">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Topic</h5>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @topic, html: { autocomplete: 'off' }, remote: true do |f| %>
+          <%= f.input :title %>
+          <%= f.color_field :color %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= simple_form_for @topic, remote: true do |f| %>
-  <%= f.input :title %>
-  <%= f.button :submit %>
-<% end %>
+
+
