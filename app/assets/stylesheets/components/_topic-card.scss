@@ -1,9 +1,10 @@
 .topics {
   display: grid;
-  margin: 0 auto;
+  margin: 10vh auto;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 32px;
+  max-width: 1150px;
 
 }
 .topic {
@@ -12,9 +13,21 @@
   padding: 78px;
   font-size: 28px;
   text-align: center;
+  border-radius: 16px;
+  opacity: .9;
 }
 
 .topic:hover {
+  opacity: .8;
+}
+
+p.topic:hover {
   text-decoration: none;
   color: $black;
+}
+
+.topic-button {
+  background: #D8D8D8;
+  color: white;
+  border: none;
 }
