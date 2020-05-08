@@ -10,12 +10,16 @@
 .topic {
   font-weight: bold;
   color: $black;
-  padding: 78px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 28px;
   text-align: center;
   border-radius: 16px;
   opacity: .85;
   transition: all .3s;
+  line-height: 1.1;
+  height: 200px;
 }
 
 p.topic {
