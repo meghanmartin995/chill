@@ -1,0 +1,37 @@
+.topics {
+  display: grid;
+  margin: 10vh auto;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 32px;
+  max-width: 1150px;
+
+}
+.topic {
+  font-weight: bold;
+  color: $black;
+  padding: 78px;
+  font-size: 28px;
+  text-align: center;
+  border-radius: 16px;
+  opacity: .9;
+}
+
+p.topic {
+  opacity: 1;
+}
+
+.topic:hover {
+  opacity: .8;
+}
+
+p.topic:hover {
+  text-decoration: none;
+  color: $black;
+}
+
+.topic-button {
+  background: #D8D8D8;
+  color: white;
+  border: none;
+}
