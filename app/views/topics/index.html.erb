@@ -1,16 +1,32 @@
-<h1>Topics</h1>
-
-<ul>
-  <% if current_user.topics.blank? %>
-    add a topic
-  <% else %>
+<section class="topics">
+<% if current_user.topics.blank? %>
+  add a topic
+<% else %>
+  <button type="button" class="topic" data-toggle="modal" data-target="#exampleModalCenter" style="width: 70%; margin: 0 auto; margin-top: 40%;">+</button>
   <% current_user.topics.each do |topic| %>
-    <li><%= link_to topic.title, topic_path(topic) %></li>
+    <%= link_to topic.title, topic_path(topic), class: 'topic' %>
   <% end %>
-  <% end %>
-</ul>
-
-<%= simple_form_for @topic, remote: true do |f| %>
-  <%= f.input :title %>
-  <%= f.button :submit %>
 <% end %>
+</section>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content container">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Topic</h5>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for @topic, html: { autocomplete: 'off' }, remote: true do |f| %>
+          <%= f.input :title %>
+          <%= f.color_field :color %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
