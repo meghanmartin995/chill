@@ -1,6 +1,6 @@
 puts 'Creating users...'
 
-user_1 = User.create!(name: "Meghan", email: "meghanxmartin@gmail.com", password: "123456")
+user_1 = User.create!(email: "meghanmartin1995@gmail.com", password: "123456")
 
 
 puts 'Creating topics...'
