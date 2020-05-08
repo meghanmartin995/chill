@@ -21,11 +21,11 @@
         <%= simple_form_for @topic, html: { autocomplete: 'off' }, remote: true do |f| %>
           <%= f.input :title %>
           <%= f.color_field :color %>
-          <%= f.button :submit %>
+          <%= f.button :submit, 'submit', class: "modal-btn" %>
         <% end %>
       </div>
-      <div class="modal-footer">
-      </div>
+<!--       <div class="modal-footer">
+      </div> -->
     </div>
   </div>
 </div>
