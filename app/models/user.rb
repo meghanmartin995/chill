@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :todos
   has_many :topics
   has_many :resources
+  has_many :columns
 end

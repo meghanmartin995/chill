@@ -1,40 +1,62 @@
 class TodosController < ApplicationController
+  before_action :set_topic
+  before_action :set_column
+  before_action :set_todo, only: [:edit, :update, :destroy]
+
   def create
-    @topic = Topic.find(params[:topic_id])
     @todo = Todo.new(todo_params)
+    @todo.column = @column
+    @todo.topic = @topic
     @todo.user = current_user
     authorize @todo
-    @todo.topic = @topic
     if @todo.save
-      redirect_to topic_path(@topic)
+      redirect_to @topic
     else
-      render 'topics/show'
+      render :new
     end
   end
 
+  def new
+    @todo = @column.todos.new
+    authorize @todo
+  end
+
   def destroy
-    @todo = Todo.find(params[:id])
     authorize @todo
     @todo.destroy
-    @topic = @todo.topic
-    redirect_to topic_path(@topic)
+    redirect_to @topic
   end
 
   def update
-    @todo = Todo.find(params[:id])
     authorize @todo
-    @todo.update(todo_params)
-    @topic = @todo.topic
-    if @todo.save
-      redirect_to topic_path(@topic)
+    params[:positions].uniq.each_with_index do |id, index|
+      @topic.todos.find(id).update(position: index + 1)
+    end
+    if @todo.update(todo_params)
+      respond_to do |format|
+        format.html { redirect_to @topic, notice: 'Todo was successfully updated.' }
+        format.json {}
+      end
     else
-      render 'topics/show'
+      render :edit
     end
   end
 
   private
 
+  def set_topic
+    @topic = current_user.topics.includes(columns: :todos).find(params[:topic_id])
+  end
+
+  def set_column
+    @column = @topic.columns.find(params[:column_id])
+  end
+
+  def set_todo
+    @todo = @topic.todos.find(params[:id])
+  end
+
   def todo_params
-    params.require(:todo).permit(:title, :topic_id, :completed)
+    params.require(:todo).permit(:column_id, :content, :user_id)
   end
 end
