@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_201902) do
+ActiveRecord::Schema.define(version: 2020_05_09_180516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "columns", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.bigint "topic_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["topic_id"], name: "index_columns_on_topic_id"
+    t.index ["user_id"], name: "index_columns_on_user_id"
+  end
 
   create_table "resources", force: :cascade do |t|
     t.string "title"
@@ -35,6 +76,9 @@ ActiveRecord::Schema.define(version: 2020_05_07_201902) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.bigint "column_id", null: false
+    t.integer "position", default: 0
+    t.index ["column_id"], name: "index_todos_on_column_id"
     t.index ["topic_id"], name: "index_todos_on_topic_id"
     t.index ["user_id"], name: "index_todos_on_user_id"
   end
@@ -60,8 +104,12 @@ ActiveRecord::Schema.define(version: 2020_05_07_201902) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "columns", "topics"
+  add_foreign_key "columns", "users"
   add_foreign_key "resources", "topics"
   add_foreign_key "resources", "users"
+  add_foreign_key "todos", "columns"
   add_foreign_key "todos", "topics"
   add_foreign_key "todos", "users"
   add_foreign_key "topics", "users"

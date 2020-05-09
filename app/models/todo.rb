@@ -1,5 +1,7 @@
 class Todo < ApplicationRecord
   belongs_to :topic
   belongs_to :user
-  validates :title, presence: true
+  belongs_to :column
+  has_rich_text :content
+  # validates :title, presence: true
 end

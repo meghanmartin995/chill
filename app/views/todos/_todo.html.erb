@@ -1,0 +1,13 @@
+<%= content_tag :li, data: { target: 'draggable.todo',
+                              id: todo.id,
+                              url: topic_column_todo_path(@topic, column, todo) } do %>
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">
+        <%= todo.content %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<%#= link_to 'delete', [topic, column, todo], method: :delete %>

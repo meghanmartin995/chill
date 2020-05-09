@@ -1,42 +1,17 @@
-<%= render 'shared/side_nav' %>
-
-<%= link_to "resources", topic_resources_path(@topic), class: "main" %>
-
-<div class="main">
-  <h1><%= @topic.title %></h1>
-
-  <div id="topics">
-    <% if @topic.resources.blank? %>
-      add a resource
-    <% else %>
-      <% @topic.resources.each do |resource| %>
-        <p><%= resource.title %></p>
-          <p><%= button_to "x", resource_path(resource),
-                method: :delete,
-                data: { remote: true } %></p>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div id="todos">
-    <% if @topic.todos.blank? %>
-      add a todo
-    <% else %>
-      <% @topic.todos.each do |todo| %>
-        <p><%= todo.title %></p>
-          <p><%= button_to "x", todo_path(todo),
-          method: :delete,
-          data: { remote: true } %></p>
-          <%= simple_form_for todo, remote: true do |f| %>
-            <%= f.check_box :completed %>
-            <%= f.button :submit %>
+<%= content_tag :div, class: :row, data: { controller: 'draggable' } do %>
+  <% @topic.columns.each do |column| %>
+    <div class='col'>
+      <div class='card'>
+        <h5 class='card-title'><%= column.title %></h5>
+        <div class='card-body'>
+          <%= content_tag :ul, class: 'card-text dropzone', data: { id: column.id, target: 'draggable.column' } do %>
+            <%= render column.todos, todo: @todo, column: column %>
           <% end %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <%= simple_form_for([ @topic, @todo ], html: { autocomplete: 'off' }, remote: true) do |f| %>
-    <%= f.input :title %>
-    <%= f.button :submit %>
+        </div>
+        <%= link_to "New Todo", new_topic_column_todo_path(@topic, column) %>
+      </div>
+    </div>
   <% end %>
-</div>
+<% end %>
+
+<%= link_to "New Column", new_topic_column_path(@topic) %> |
