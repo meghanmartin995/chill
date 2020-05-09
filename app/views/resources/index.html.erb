@@ -1,0 +1,21 @@
+<%= render 'shared/side_nav' %>
+  <div class="main">
+     <div id="topics">
+    <% if @topic.resources.blank? %>
+      add a resource
+    <% else %>
+      <% @topic.resources.each do |resource| %>
+        <p><%= resource.title %></p>
+          <p><%= button_to "x", resource_path(resource),
+                method: :delete,
+                data: { remote: true } %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+
+    <%= simple_form_for([ @topic, @resource ], html: { autocomplete: 'off' }, remote: true) do |f| %>
+      <%= f.input :title %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>

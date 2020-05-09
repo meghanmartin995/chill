@@ -1,10 +1,6 @@
-<nav class="sidenav">
-  <%=  image_tag("small-logo.svg", class: "small-logo") %>
-  <%= link_to "All Projects", topics_path, id: 'nav-link' %>
-  <% @topics.each do |topic| %>
-    <%= link_to topic.title, topic_path(topic), id: 'nav-link' %>
-  <% end %>
-</nav>
+<%= render 'shared/side_nav' %>
+
+<%= link_to "resources", topic_resources_path(@topic), class: "main" %>
 
 <div class="main">
   <h1><%= @topic.title %></h1>
@@ -38,11 +34,6 @@
       <% end %>
     <% end %>
   </div>
-
-  <%= simple_form_for([ @topic, @resource ], html: { autocomplete: 'off' }, remote: true) do |f| %>
-    <%= f.input :title %>
-    <%= f.button :submit %>
-  <% end %>
 
   <%= simple_form_for([ @topic, @todo ], html: { autocomplete: 'off' }, remote: true) do |f| %>
     <%= f.input :title %>

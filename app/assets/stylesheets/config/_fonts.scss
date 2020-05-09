@@ -1,9 +1,11 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Benton Sans Regular", "Helvetica", "sans-serif";
+$bold-font: "Benton Sans Bold", "Helvetica", "sans-serif";
+$headers-font: "Benton Sans Bold", "Helvetica", "sans-serif";
+$medium-font: "Benton Sans Medium", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,3 +16,20 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+
+@font-face {
+   font-family: 'Benton Sans Regular';
+   src: font-url('BentonSansRegular.otf') format('otf')
+}
+
+@font-face {
+   font-family: 'Benton Sans Bold';
+   src: font-url('BentonSansBold.otf') format('otf')
+}
+
+@font-face {
+   font-family: 'Benton Sans Medium';
+   src: font-url('BentonSansMedium.otf') format('otf')
+}
+

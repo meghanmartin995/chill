@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = policy_scope(Topic).order(created_at: :desc)
+    @topics = policy_scope(Topic).order(created_at: :desc).where(user: current_user)
     @topic = Topic.new
   end
 
