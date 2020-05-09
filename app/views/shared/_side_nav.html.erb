@@ -1,0 +1,7 @@
+<nav class="sidenav">
+  <%=  image_tag("small-logo.svg", class: "small-logo") %>
+  <%= link_to "All Projects", topics_path, id: 'nav-link' %>
+  <% current_user.topics.each do |topic| %>
+    <%= link_to topic.title, topic_path(topic), id: 'nav-link' %>
+  <% end %>
+</nav>
