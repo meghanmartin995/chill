@@ -6,11 +6,9 @@ class TopicsController < ApplicationController
   end
 
   def show
-    # @topic = Topic.find(params[:id])
-    #@topic = current_user.topics.find(params[:id])
     authorize @topic
     # @resource = Resource.new
-    # @todo = Todo.new
+    @todo = Todo.new
   end
 
   def create
