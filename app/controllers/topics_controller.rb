@@ -9,6 +9,7 @@ class TopicsController < ApplicationController
     authorize @topic
     # @resource = Resource.new
     @todo = Todo.new
+    @column = Column.new
   end
 
   def create

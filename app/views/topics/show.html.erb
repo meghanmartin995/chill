@@ -1,4 +1,14 @@
 <%= content_tag :div, class: :row, data: { controller: 'draggable' } do %>
+  <%= form_with(model: [@topic, @column], local: true) do |form| %>
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
   <% @topic.columns.each do |column| %>
     <div class='col'>
       <div class='card'>
@@ -8,7 +18,7 @@
             <%= render column.todos, todo: @todo, column: column %>
           <% end %>
         </div>
-        <%= link_to "New Todo", new_topic_column_todo_path(@topic, column) %>
+        <%#= link_to "New Todo", new_topic_column_todo_path(@topic, column) %>
         <%= form_with(model: [@topic, column, @todo], local: true) do |form| %>
           <div class='fields'>
             <%= form.label :content %>
@@ -23,5 +33,5 @@
   <% end %>
 <% end %>
 
-<%= link_to "New Column", new_topic_column_path(@topic) %>
+<%#= link_to "New Column", new_topic_column_path(@topic) %>
 <%#= link_to "Resources", resource_path(@topic) %>
