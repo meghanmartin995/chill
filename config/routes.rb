@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :topics, only: [ :index, :show, :create, :new ] do
     resources :resources, only: [ :create, :index ]
-    resources :columns, except: [:index, :show] do
-      resources :todos, except: [:index, :show]
+    resources :columns, except: [:index, :show, :new] do
+      resources :todos, except: [:index, :show, :new]
     end
   end
   resources :resources, only: :destroy
