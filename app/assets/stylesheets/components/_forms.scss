@@ -61,3 +61,28 @@ abbr {
   color: white;
   text-decoration: none;
 }
+
+.submit-btn {
+  display: none;
+}
+.new_todo {
+  background: #F7F5F5;
+  border-radius: 10px;
+  height: 60px;
+  .form-control {
+    border: none;
+    background: #F7F5F5;
+
+    padding-left: 24px;
+    color: rgba(130, 129, 129, 0.73);
+    font-family: BentonSans Medium;
+  }
+  #todo_title {
+    padding-top: 18px;
+  }
+  #todo_description {
+    font-size: 16px;
+    margin-top: -24px;
+    font-family: BentonSans Regular;
+  }
+}

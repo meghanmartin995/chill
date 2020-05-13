@@ -2,37 +2,64 @@
   min-height: 300px;
 }
 
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.container-todos {
+  padding: 90px 120px 0 346px;
+  background: #FAFAFA;
+  h1.page-title {
+    font-family: BentonSans Bold;
+    font-weight: 500;
+    font-size: 44px;
+    margin-bottom: 50px;
+  }
 }
 
-.card {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-}
+.todorow {
+  overflow-x: auto;
+  //overflow-y: hidden;
+  white-space: nowrap;
+  width: 1000px;
+  height: 100vh;
 
-.card-body {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1.25rem;
-}
+  .todocolumn {
+    margin-right: 64px;
+    display: inline-block;
+    overflow-x: auto;
+    width: 270px;
+    height: 1600px;
 
-.card-title {
-    margin-bottom: .75rem;
+  .todos {
+    margin-bottom: 24px;
+  }
+    h5 {
+      background: #FFC6C6;
+      padding: 10px 12px;
+      border-radius: 40px;
+      margin-bottom: 46px;
+      font-family: Josefin Sans;
+      font-weight: bold;
+      font-size: 28px;
+    }
+    .todocard {
+      box-shadow: 0px 4px 23px rgba(193, 193, 193, 0.21);
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 16px;
+      display: flex;
+      background: white;
+      flex-direction: column;
+      width: 270px;
+      p {
+        font-size: 18px;
+        line-height: 20px;
+        color: #3F3F3F;
+      }
+      h3 {
+        font-family: BentonSans Bold;
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+    }
+  }
 }
 
 ul {
@@ -42,4 +69,35 @@ li {
   list-style: none;
 }
 
+// .color-picker input[type="radio"] {
+//   opacity: 0;
+//   position: fixed;
+//   width: 0;
+// }
+
+// // .collection_radio_buttons {
+// //   background-color: #e2b2ff;
+// // }
+
+// .purple {
+//   background-color: #e2b2ff;
+// }
+
+// // #todo_color_e2b2ff {
+// //   height: 15px;
+// //   width: 15px;
+// //   background-color: #e2b2ff;
+// // }
+
+// .color-picker label {
+//     display: inline-block;
+//     padding: 10px 10px;
+//     border-radius: 50%;
+//     font-size: 4px;
+// }
+
+// .color-picker input[type="radio"]:checked + label {
+//     background-color:#bfb;
+//     border-color: #4c4;
+// }
 

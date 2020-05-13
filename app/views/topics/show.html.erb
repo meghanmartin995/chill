@@ -1,32 +1,41 @@
-<%= content_tag :div, class: :row, data: { controller: 'draggable' } do %>
-  <%= form_with(model: [@topic, @column], local: true) do |form| %>
-    <div class="field">
-      <%= form.label :title %>
-      <%= form.text_field :title %>
-    </div>
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
-  <% @topic.columns.each do |column| %>
-    <div class='col'>
-      <div class='card'>
-        <h5 class='card-title'><%= column.title %></h5>
-        <div class='card-body'>
-          <%= content_tag :ul, class: 'card-text dropzone', data: { id: column.id, target: 'draggable.column' } do %>
-            <%= render column.todos, todo: @todo, column: column %>
-          <% end %>
+<%= render 'shared/side_nav' %>
+
+  <div class="container-todos">
+    <h1 class="page-title"> <%= @topic.title %> </h1>
+
+    <%= content_tag :div, class: :todorow, data: { controller: 'draggable' } do %>
+    <!--   <%#= form_with(model: [@topic, @column], local: true) do |form| %>
+        <div class="field">
+          <%#= form.label :title %>
+          <%#= form.text_field :title %>
         </div>
-          <%= simple_form_for [@topic, column, @todo], html: { autocomplete: 'off' }, remote: true do |f| %>
-            <%= f.input :title %>
-            <%= f.input :description %>
-            <%= f.input :color,  as: :radio_buttons, collection: [ "Blue", "Brown", "Red", "Purple" ] %>
-            <%#= f.color_field :color %>
-            <%= f.button :submit, 'submit', class: "" %>
-          <% end %>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+        <div class="actions">
+          <%#= form.submit %>
+        </div>
+      <#% end %> -->
+      <% @topic.columns.each do |column| %>
+
+        <div class='todocolumn'>
+          <h5 class='card-title'><%= column.title %></h5>
+          <div class='todos'>
+            <%= content_tag :ul, class: 'card-text dropzone', data: { id: column.id, target: 'draggable.column' } do %>
+              <%= render column.todos, todo: @todo, column: column %>
+            <% end %>
+          </div>
+            <%= simple_form_for [@topic, column, @todo], html: { autocomplete: 'off' }, remote: true do |f| %>
+              <%= f.input :title, label: false, placeholder: 'Type to add', :input_html => { :class => "text" } %>
+              <%= f.input :description, label: false, placeholder: 'add a description', :input_html => { :class => "text" }  %>
+              <div class="color-picker">
+                  <%#= f.input :color, as: :minicolors, input_html: {data: {
+                  minicolors: {theme: :bootstrap, position: :right}}} %>
+                <%#= f.input :color, as: :radio_buttons, collection: [ ["x", "#E2B2FF"], ["x" , "#B2FFC8"], ["x", "#F9FFB2"], ["x" , "#FFB2EA"] ], namespace: "unique", class: "" %>
+              </div>
+              <%#= f.color_field :color %>
+              <%= f.button :submit, 'submit', class: "submit-btn" %>
+            <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
 <%#= link_to "Resources", resource_path(@topic) %>
