@@ -4,7 +4,6 @@
       <%= form.label :title %>
       <%= form.text_field :title %>
     </div>
-
     <div class="actions">
       <%= form.submit %>
     </div>
@@ -18,20 +17,16 @@
             <%= render column.todos, todo: @todo, column: column %>
           <% end %>
         </div>
-        <%#= link_to "New Todo", new_topic_column_todo_path(@topic, column) %>
-        <%= form_with(model: [@topic, column, @todo], local: true) do |form| %>
-          <div class='fields'>
-            <%= form.label :content %>
-            <%= form.rich_text_area :content %>
-          </div>
-          <div class="actions">
-            <%= form.submit %>
-          </div>
-        <% end %>
+          <%= simple_form_for [@topic, column, @todo], html: { autocomplete: 'off' }, remote: true do |f| %>
+            <%= f.input :title %>
+            <%= f.input :description %>
+            <%= f.input :color,  as: :radio_buttons, collection: [ "Blue", "Brown", "Red", "Purple" ] %>
+            <%#= f.color_field :color %>
+            <%= f.button :submit, 'submit', class: "" %>
+          <% end %>
       </div>
     </div>
   <% end %>
 <% end %>
 
-<%#= link_to "New Column", new_topic_column_path(@topic) %>
 <%#= link_to "Resources", resource_path(@topic) %>

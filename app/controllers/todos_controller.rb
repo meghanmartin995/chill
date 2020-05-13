@@ -12,7 +12,7 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to @topic
     else
-      render :new
+      redirect_to @topic
     end
   end
 
@@ -57,6 +57,6 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:column_id, :content, :user_id)
+    params.require(:todo).permit(:column_id, :title, :color, :description, :user_id)
   end
 end
