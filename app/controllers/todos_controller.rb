@@ -57,6 +57,6 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:column_id, :title, :user_id)
+    params.require(:todo).permit(:column_id, :title, :description, :user_id)
   end
 end

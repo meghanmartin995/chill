@@ -19,6 +19,7 @@
         </div>
           <%= simple_form_for [@topic, column, @todo], html: { autocomplete: 'off' }, remote: true do |f| %>
             <%= f.input :title %>
+            <%= f.input :description %>
             <%= f.button :submit, 'submit', class: "" %>
           <% end %>
       </div>
