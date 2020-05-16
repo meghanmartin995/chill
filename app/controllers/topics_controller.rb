@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [ :show ]
+  before_action :set_topic, only: [ :show, :destroy ]
   def index
     @topics = policy_scope(Topic).order(created_at: :desc).where(user: current_user)
     @topic = Topic.new
@@ -21,6 +21,12 @@ class TopicsController < ApplicationController
     else
       render 'topics/index'
     end
+  end
+
+  def destroy
+    authorize @topic
+    @topic.destroy
+    redirect_to topics_path
   end
 
   private
