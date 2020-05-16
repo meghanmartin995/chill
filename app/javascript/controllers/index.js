@@ -3,7 +3,7 @@
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
-import { colorChange } from "packs/color"
+import { dropdown } from "packs/dropdown"
 
 const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
