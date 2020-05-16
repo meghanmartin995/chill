@@ -1,17 +1,15 @@
+  <%= content_tag :div, class: :todorow, data: { controller: 'draggable' } do %>
+  <%= form_with(model: [@topic, @column], local: true) do |form| %>
+    <div class="field">
+      <%= form.text_field :title %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
 
   <div class="container-todos">
     <!-- <h1 class="page-title"> <%= @topic.title %> </h1> -->
-
-    <%= content_tag :div, class: :todorow, data: { controller: 'draggable' } do %>
-    <!--   <%#= form_with(model: [@topic, @column], local: true) do |form| %>
-        <div class="field">
-          <%#= form.label :title %>
-          <%#= form.text_field :title %>
-        </div>
-        <div class="actions">
-          <%#= form.submit %>
-        </div>
-      <#% end %> -->
       <% @topic.columns.each do |column| %>
 
         <div class='todocolumn'>
@@ -36,5 +34,6 @@
       <% end %>
     <% end %>
   </div>
+
 
 <%#= link_to "Resources", resource_path(@topic) %>
