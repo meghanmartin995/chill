@@ -13,7 +13,7 @@
       <% @topic.columns.each do |column| %>
 
         <div class='todocolumn'>
-          <h5 class='card-title'><%= column.title %></h5>
+          <h5 class='card-title'><%= column.title %></h5><%= button_to '', [@topic, column], method: :delete, remote: true %>
           <div class='todos'>
             <%= content_tag :ul, class: 'card-text dropzone', data: { id: column.id, target: 'draggable.column' } do %>
               <%= render column.todos, todo: @todo, column: column %>

@@ -31,6 +31,7 @@ class ColumnsController < ApplicationController
   end
 
   def destroy
+    authorize @column
     @column.destroy
     redirect_to @topic
   end
