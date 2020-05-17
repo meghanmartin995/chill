@@ -10,33 +10,26 @@ nav {
     font-family: BentonSans Medium;
     cursor: pointer;
   }
+  .dropdown-item {
+    color: rgba(234, 105, 105, 0.87);
+  }
 }
 
 nav a:hover {
   color: rgba(234, 105, 105, 0.87);
 }
 
-#dropdown {
-  display: none;
-  position: absolute;
-  width: 130%;
-  background-color: white;
-  z-index: 1;
-  text-align: center;
-  left: 0;
-  top: 100%;
-  padding-top: 10px;
-  border-radius: 3px;
-  li {
-    padding: 10px 15px;
-    font-family: BentonSans Regular;
+#dropdownMenuLink {
+  background-color: transparent;
+  border: none;
+  color: rgba(234, 105, 105, 0.87);
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0px 4px 18px rgba(182, 182, 182, 0.21);
+  left: -14px !important;
+    a:hover {
+    color: rgba(234, 105, 105, 0.87) !important;
   }
-}
-
-#dropdown.active {
-  display: block;
-}
-
-#menu {
-  position: relative;
 }
