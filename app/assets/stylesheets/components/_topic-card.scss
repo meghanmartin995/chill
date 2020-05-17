@@ -21,7 +21,17 @@
   transition: all .3s;
   line-height: 1.1;
   height: 200px;
+  position: relative;
+  .fa-times {
+    position: absolute;
+    top: 16px;
+    right: 26px;
+    color: white;
+    font-size: 18px;
+  }
 }
+
+
 
 p.topic {
   // opacity: 1;
