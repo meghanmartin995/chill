@@ -2,9 +2,13 @@
                               id: todo.id,
                               url: topic_column_todo_path(@topic, column, todo) } do %>
   <div class="todocard">
-   <h3> <%= todo.title %> </h3> <%= button_to '', [@topic, column, todo], method: :delete, remote: true %>
-   <p> <%= todo.description %> </p>
-
+   <div class="todo-title">
+      <h3> <%= todo.title %> </h3>
+      <%= button_to [@topic, column, todo], method: :delete do %>
+        <i class="fas fa-times"></i>
+      <% end %>
+    </div>
+    <p> <%= todo.description %> </p>
   </div>
 <% end %>
 

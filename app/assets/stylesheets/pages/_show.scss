@@ -23,7 +23,15 @@
     overflow-x: auto;
     //width: 270px;
     height: 1600px;
-
+  .card-title {
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button {
+      color: #DBDBDB;
+    }
+  }
   .todos {
     margin-bottom: 24px;
   }
@@ -31,7 +39,6 @@
       background: #FFC6C6;
       padding: 6px 18px;
       border-radius: 3px;
-      margin-bottom: 46px;
       font-family: Josefin Sans;
       font-weight: bold;
       font-size: 26px;
@@ -45,6 +52,13 @@
       background: white;
       flex-direction: column;
       width: 248px;
+      .todo-title {
+        display: flex;
+        justify-content: space-between;
+        button {
+          color: #DBDBDB;
+        }
+      }
       p {
         font-size: 16px;
         line-height: 20px;

@@ -5,7 +5,10 @@
         <%= link_to topic_path(topic) do %>
           <p class="topic" style="background-color: <%= topic.color %>"><%= topic.title %></p>
         <% end %>
-        <%= button_to '', [topic], method: :delete, remote: true %>
+        <%= button_to [topic], method: :delete do %>
+          <i class="fas fa-times"></i>
+        <% end %>
+        <%#= button_to '', [topic], method: :delete, remote: true %>
       <% end %>
     <% end %>
 </section>
@@ -28,6 +31,3 @@
     </div>
   </div>
 </div>
-
-
-

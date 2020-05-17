@@ -12,14 +12,14 @@
     </li>
   </ul>
   <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    My Projects
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <%= link_to "All Projects", topics_path, class:'dropdown-item' %>
-    <% current_user.topics.each do |topic| %>
-      <a><%= link_to topic.title, topic_path(topic), class: 'dropdown-item' %></a>
-    <% end %>
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      My Projects
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <%= link_to "All Projects", topics_path, class:'dropdown-item' %>
+      <% current_user.topics.each do |topic| %>
+        <a><%= link_to topic.title, topic_path(topic), class: 'dropdown-item' %></a>
+      <% end %>
+    </div>
   </div>
-</div>
 </nav>
