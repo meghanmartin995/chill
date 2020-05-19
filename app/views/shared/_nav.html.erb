@@ -1,5 +1,7 @@
 <nav>
-  <%= image_tag("small-logo.svg", class: "small-logo") %>
+  <%= link_to root_path do %>
+    <%= image_tag("small-logo.svg", class: "small-logo") %>
+  <% end %>
 <!--   <ul class="my-projects">
     <li id="menu"> My Projects
       <i class="fas fa-angle-down"></i>
@@ -18,7 +20,7 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       <%= link_to "All Projects", topics_path, class:'dropdown-item' %>
       <% current_user.topics.each do |topic| %>
-        <a><%= link_to topic.title, topic_path(topic), class: 'dropdown-item' %></a>
+        <a><%= link_to topic.title.capitalize, topic_path(topic), class: 'dropdown-item' %></a>
       <% end %>
     </div>
   </div>

@@ -27,7 +27,7 @@
     overflow-x: auto;
     width: 256px;
     height: 1600px;
-    padding-right: 2px;
+    padding: 0 2px 0 2px;
   .card-title {
     margin-bottom: 50px;
     display: flex;
@@ -75,20 +75,9 @@
         margin-bottom: 8px;
         width: 236px;
         overflow: hidden;
+        white-space: pre-line;
       }
     }
-  }
-}
-
-#add-column {
-  display: flex;
-  margin-top: 60px;
-  color: #B7B7B7;
-  width: 126px;
-  justify-content: space-between;
-  font-family: BentonSans Medium;
-  i {
-    padding-top: 3px;
   }
 }
 // .color-picker input[type="radio"] {

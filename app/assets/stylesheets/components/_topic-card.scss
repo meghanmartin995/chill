@@ -22,6 +22,10 @@
   line-height: 1.1;
   height: 200px;
   position: relative;
+  cursor: pointer;
+  p {
+    color: $black;
+  }
   .fa-times {
     position: absolute;
     top: 16px;

@@ -1,9 +1,21 @@
-
 .hide {
-  display: none
+  display: none !important;
 }
 
-.show {
-  display: block;
+.add-column {
+  display: flex;
+  margin-top: 68px;
+  color: #B7B7B7;
+  width: 126px;
+  justify-content: space-between;
+  font-family: BentonSans Medium;
+  cursor: pointer;
+  i {
+    padding-top: 3px;
+  }
 }
 
+#form {
+  display: flex;
+  margin-top: 68px;
+}
