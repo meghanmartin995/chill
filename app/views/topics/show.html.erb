@@ -8,7 +8,7 @@
 
           <div class='todocolumn'>
             <div class="card-title">
-              <h5><%= column.title %></h5>
+              <h5 style="background-color: <%=   @topic.color %> "><%= column.title %></h5>
               <%= button_to [@topic, column], method: :delete do %>
                 <i class="fas fa-times"></i>
               <% end %>

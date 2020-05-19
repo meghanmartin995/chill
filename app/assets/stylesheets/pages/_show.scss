@@ -24,7 +24,7 @@
     margin-right: 64px;
     display: inline-block;
     overflow-x: auto;
-    width: 256px;
+    width: 274px;
     height: 1600px;
     padding: 0 2px 0 2px;
   .card-title {
@@ -40,7 +40,7 @@
     margin-bottom: 24px;
   }
     h5 {
-      background: #FFC6C6;
+      // background: #FFC6C6;
       padding: 6px 18px;
       border-radius: 3px;
       font-family: Josefin Sans;
@@ -55,7 +55,7 @@
       display: flex;
       background: white;
       flex-direction: column;
-      width: 248px;
+      width: 266px;
       .todo-title {
         display: flex;
         justify-content: space-between;
@@ -68,7 +68,7 @@
         font-size: 16px;
         line-height: 20px;
         color: #3F3F3F;
-        width: 180px;
+        width: 204px;
         overflow: hidden;
         white-space: pre-line;
       }
@@ -76,7 +76,7 @@
         font-family: BentonSans Bold;
         font-size: 18px;
         margin-bottom: 8px;
-        width: 186px;
+        width: 200px;
         overflow: hidden;
         white-space: pre-line;
       }

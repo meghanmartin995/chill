@@ -6,24 +6,24 @@ nav {
   height: 80px;
   padding: 0 66px;
   a, i, li {
-    color: rgba(234, 105, 105, 0.87);
+    color: $black;
     font-family: BentonSans Medium;
     cursor: pointer;
   }
   .dropdown-item {
-    color: rgba(234, 105, 105, 1);
+    color: $black;
     font-family: Benton Sans Regular;
   }
 }
 
 nav a:hover {
-  color: rgba(234, 105, 105, 0.87);
+  color: $black;
 }
 
 #dropdownMenuLink {
   background-color: transparent;
   border: none;
-  color: rgba(234, 105, 105, 0.87);
+  color: $black;
 }
 
 .dropdown-menu {
@@ -31,6 +31,6 @@ nav a:hover {
   box-shadow: 0px 4px 18px rgba(182, 182, 182, 0.21);
   left: -14px !important;
     a:hover {
-    color: rgba(234, 105, 105, 0.87) !important;
+    color: $black;
   }
 }
