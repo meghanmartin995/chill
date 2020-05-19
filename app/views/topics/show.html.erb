@@ -20,7 +20,7 @@
             </div>
               <%= simple_form_for [@topic, column, @todo], html: { autocomplete: 'off' }, remote: true do |f| %>
                 <%= f.input :title, label: false, placeholder: 'Type to add', :input_html => { :class => "text" } %>
-                <%= f.input :description, label: false, placeholder: 'add a description', :input_html => { :class => "text" }  %>
+                <%= f.input :description, label: false, placeholder: 'Describe how u want', :input_html => { :class => "text" }  %>
                 <div class="color-picker">
                     <%#= f.input :color, as: :minicolors, input_html: {data: {
                     minicolors: {theme: :bootstrap, position: :right}}} %>

@@ -45,6 +45,9 @@ label.string {
   i {
     font-size: 18px;
   }
+  a {
+    color: $black;
+  }
 }
 
 abbr {
@@ -75,13 +78,17 @@ abbr {
   .form-control {
     border: none;
     background: #F7F5F5;
-
+    padding: 0;
     padding-left: 24px;
-    color: rgba(130, 129, 129, 0.73);
+    color: rgba(130, 129, 129, 0.82);
     font-family: BentonSans Medium;
+  }
+  .form-control::-webkit-input-placeholder {
+    color: rgba(130, 129, 129, 0.82);
   }
   #todo_title {
     padding-top: 18px;
+    padding-bottom: 8px;
   }
   #todo_description {
     font-size: 16px;
