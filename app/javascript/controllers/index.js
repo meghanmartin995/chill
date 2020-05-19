@@ -3,6 +3,7 @@
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
+import { addColumn } from "packs/addColumn"
 // import { dropdown } from "packs/dropdown"
 
 const application = Application.start()
