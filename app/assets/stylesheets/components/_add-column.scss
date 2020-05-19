@@ -18,4 +18,23 @@
 #form {
   display: flex;
   margin-top: 68px;
+  border: none;
+  .form-control {
+    border: none;
+    background: #F6F5F5;
+    color: rgba(130, 129, 129, 0.73);
+    height: 46px;
+    border-radius: 3px;
+    font-family: BentonSans Medium;
+    padding: 0rem 1.2rem;
+    padding-top: 3px;
+  }
+  .form-control::-webkit-input-placeholder {
+    color: rgba(130, 129, 129, 0.73);
+  }
+  #column-title {
+  }
+  .actions {
+    display: none;
+  }
 }

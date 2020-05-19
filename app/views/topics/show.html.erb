@@ -39,12 +39,12 @@
     </div>
 
     <div id="form" class="hide">
-      <%= form_with(model: [@topic, @column], local: true) do |form| %>
+      <%= simple_form_for [@topic, @column], html: { autocomplete: 'off' }, remote: true do |f| %>
       <div class="field">
-        <%= form.text_field :title %>
+        <%= f.input :title, label: false, placeholder: 'Type to add', :input_html => { :class => "text" } %>
       </div>
       <div class="actions">
-        <%= form.submit %>
+        <%= f.button :submit, '', class: "" %>
       </div>
     <% end %>
   </div>

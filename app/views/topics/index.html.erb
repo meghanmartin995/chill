@@ -19,7 +19,9 @@
     <div class="modal-content container">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Add Topic</h5>
-        <i class="fas fa-times"></i>
+        <%= link_to topics_path do %>
+          <i class="fas fa-times"></i>
+        <% end %>
       </div>
       <div class="modal-body">
         <%= simple_form_for @topic, html: { autocomplete: 'off' }, remote: true do |f| %>

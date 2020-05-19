@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [ :show, :destroy ]
+  skip_before_action :verify_authenticity_token
   def index
     @topics = policy_scope(Topic).order(created_at: :desc).where(user: current_user)
     @topic = Topic.new
