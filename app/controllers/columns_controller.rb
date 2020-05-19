@@ -18,7 +18,7 @@ class ColumnsController < ApplicationController
     if @column.save
       redirect_to @topic
     else
-      render :new
+      redirect_to @topic
     end
   end
 
@@ -26,7 +26,7 @@ class ColumnsController < ApplicationController
     if @column.update(column_params)
       redirect_to @column
     else
-      render :edit
+      redirect_to @topic
     end
   end
 

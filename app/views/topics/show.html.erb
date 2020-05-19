@@ -1,44 +1,58 @@
-  <%= content_tag :div, class: :todorow, data: { controller: 'draggable' } do %>
-  <%= form_with(model: [@topic, @column], local: true) do |form| %>
-    <div class="field">
-      <%= form.text_field :title %>
-    </div>
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
 
-  <div class="container-todos">
-    <!-- <h1 class="page-title"> <%= @topic.title %> </h1> -->
-      <% @topic.columns.each do |column| %>
+<%= content_tag :div, class: :todorow, data: { controller: 'draggable' } do %>
 
-        <div class='todocolumn'>
-          <div class="card-title">
-            <h5><%= column.title %></h5>
-            <%= button_to [@topic, column], method: :delete do %>
-              <i class="fas fa-times"></i>
-            <% end %>
+  <div class="container-content">
+    <div class="container-todos">
+      <!-- <h1 class="page-title"> <%= @topic.title %> </h1> -->
+        <% @topic.columns.each do |column| %>
+
+          <div class='todocolumn'>
+            <div class="card-title">
+              <h5><%= column.title %></h5>
+              <%= button_to [@topic, column], method: :delete do %>
+                <i class="fas fa-times"></i>
+              <% end %>
+            </div>
+            <div class='todos'>
+              <%= content_tag :ul, class: 'card-text dropzone', data: { id: column.id, target: 'draggable.column' } do %>
+                <%= render column.todos, todo: @todo, column: column %>
+              <% end %>
+            </div>
+              <%= simple_form_for [@topic, column, @todo], html: { autocomplete: 'off' }, remote: true do |f| %>
+                <%= f.input :title, label: false, placeholder: 'Type to add', :input_html => { :class => "text" } %>
+                <%= f.input :description, label: false, placeholder: 'add a description', :input_html => { :class => "text" }  %>
+                <div class="color-picker">
+                    <%#= f.input :color, as: :minicolors, input_html: {data: {
+                    minicolors: {theme: :bootstrap, position: :right}}} %>
+                  <%#= f.input :color, as: :radio_buttons, collection: [ ["x", "#E2B2FF"], ["x" , "#B2FFC8"], ["x", "#F9FFB2"], ["x" , "#FFB2EA"] ], namespace: "unique", class: "" %>
+                </div>
+                <%#= f.color_field :color %>
+                <%= f.button :submit, 'submit', class: "submit-btn" %>
+              <% end %>
           </div>
-          <div class='todos'>
-            <%= content_tag :ul, class: 'card-text dropzone', data: { id: column.id, target: 'draggable.column' } do %>
-              <%= render column.todos, todo: @todo, column: column %>
-            <% end %>
-          </div>
-            <%= simple_form_for [@topic, column, @todo], html: { autocomplete: 'off' }, remote: true do |f| %>
-              <%= f.input :title, label: false, placeholder: 'Type to add', :input_html => { :class => "text" } %>
-              <%= f.input :description, label: false, placeholder: 'add a description', :input_html => { :class => "text" }  %>
-              <div class="color-picker">
-                  <%#= f.input :color, as: :minicolors, input_html: {data: {
-                  minicolors: {theme: :bootstrap, position: :right}}} %>
-                <%#= f.input :color, as: :radio_buttons, collection: [ ["x", "#E2B2FF"], ["x" , "#B2FFC8"], ["x", "#F9FFB2"], ["x" , "#FFB2EA"] ], namespace: "unique", class: "" %>
-              </div>
-              <%#= f.color_field :color %>
-              <%= f.button :submit, 'submit', class: "submit-btn" %>
-            <% end %>
-        </div>
+        <% end %>
+    </div>
+  <div class="form-group">
+    <div id="form-link">
+      <%= link_to topic_column_path(@topic), id: 'add-column' do %>
+        <i class="fas fa-plus"></i>
+        <p>add a column</p>
       <% end %>
+    </div>
+
+    <div id="form">
+      <%= form_with(model: [@topic, @column], local: true) do |form| %>
+      <div class="field">
+        <%= form.text_field :title %>
+      </div>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
     <% end %>
   </div>
+    </div>
+  <%end %>
+</div>
 
 
 <%#= link_to "Resources", resource_path(@topic) %>
