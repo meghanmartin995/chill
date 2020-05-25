@@ -40,6 +40,7 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
     authorize @todo
     @topic = @todo.topic
+    @column = @todo.column
     if params[:positions]
       params[:positions].uniq.each_with_index do |id, index|
         @topic.todos.find(id).update(position: index + 1)
@@ -47,10 +48,10 @@ class TodosController < ApplicationController
     end
 
     if @todo.update(todo_params)
-
       respond_to do |format|
         format.html { redirect_to @topic, notice: 'Todo was successfully updated.' }
         format.json {}
+        # format.js {}
       end
     else
       raise

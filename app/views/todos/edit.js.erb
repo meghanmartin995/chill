@@ -1,3 +1,7 @@
 document.getElementById('<%= dom_id(@todo) %>').insertAdjacentHTML('afterend', "<%= j render 'inline_form', todo: @todo %>")
 document.getElementById('<%= dom_id(@todo) %>').style.display = 'none'
-console.log(hello)
+document.getElementById('todo-content').style.display = 'none'
+document.getElementById('todo-title').style.display = 'none'
+document.getElementById('todo-description').style.display = 'none'
+
+console.log(document.getElementById('todo-title'))
