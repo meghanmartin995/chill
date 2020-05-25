@@ -9,6 +9,9 @@
       <% end %>
     </div>
     <p> <%= todo.description %> </p>
+    <%= link_to edit_todo_path(todo) do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
   </div>
 <% end %>
 

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
   resources :resources, only: :destroy
 
-  resources :todos, only: [ :destroy, :update ]
+  resources :todos, only: [ :destroy, :update, :edit ]
+
 end

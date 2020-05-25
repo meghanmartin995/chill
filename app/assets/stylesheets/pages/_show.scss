@@ -1,5 +1,6 @@
 .container-content {
   display: flex;
+  color: $black;
 }
 
 .dropzone {
@@ -19,7 +20,6 @@
 .todorow {
   overflow-x: auto;
   white-space: nowrap;
-
   .todocolumn {
     margin-right: 64px;
     display: inline-block;
@@ -48,7 +48,7 @@
       font-size: 24.5px;
     }
     .todocard {
-      box-shadow: 0px 4px 18px rgba(182, 182, 182, 0.21);
+      box-shadow: 0px 4px 18px rgba(182, 182, 182, 0.18);
       border-radius: 10px;
       padding: 23px 18px 18px 23px;
       margin-bottom: 16px;
@@ -56,6 +56,14 @@
       background: white;
       flex-direction: column;
       width: 266px;
+      position: relative;
+      .fa-pencil-alt {
+        position: absolute;
+        bottom: 11%;
+        right: 8%;
+        font-size: 13px;
+        color: gray;
+      }
       .todo-title {
         display: flex;
         justify-content: space-between;

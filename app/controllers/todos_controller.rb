@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
-  before_action :set_topic
-  before_action :set_column
-  before_action :set_todo, only: [:edit, :update, :destroy]
+  before_action :set_topic, except: [ :edit, :update ]
+  before_action :set_column, except: [ :edit, :update ]
+  before_action :set_todo, only: [:destroy]
 
   def create
     @todo = Todo.new(todo_params)
@@ -27,10 +27,23 @@ class TodosController < ApplicationController
     redirect_to @topic
   end
 
-  def update
+  def edit
+    @todo = Todo.find(params[:id])
+    @topic = @todo.topic
     authorize @todo
-    params[:positions].uniq.each_with_index do |id, index|
-      @topic.todos.find(id).update(position: index + 1)
+    # @todo.update(todo_params)
+    # @todo.save
+    # @todo.user = current_user
+  end
+
+  def update
+    @todo = Todo.find(params[:id])
+    authorize @todo
+    @topic = @todo.topic
+    if params[:positions]
+      params[:positions].uniq.each_with_index do |id, index|
+        @topic.todos.find(id).update(position: index + 1)
+      end
     end
     if @todo.update(todo_params)
       respond_to do |format|
