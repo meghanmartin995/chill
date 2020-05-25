@@ -4,9 +4,9 @@
   <div class="todocard">
    <div class="todo-title" id="todo-content">
       <h3 id="todo-title"> <%= todo.title %> </h3>
-      <%= button_to [@topic, column, todo], method: :delete do %>
-        <i class="fas fa-times"></i>
-      <% end %>
+        <%= button_to [@topic, column, todo], method: :delete do %>
+          <i class="fas fa-times"></i>
+        <% end %>
     </div>
     <p id="todo-description"> <%= todo.description %> </p>
     <%= content_tag :i, id: dom_id(todo) do %>

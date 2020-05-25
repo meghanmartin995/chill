@@ -104,18 +104,18 @@ abbr {
   border: solid rgba(182, 209, 235, 0.75) .8px;
   border-radius: 3px;
   font-weight: bold;
-  padding: 4px 0 4px 0px;
+  padding: 4px 0 4px 3px;
 }
 
 #description-todo input {
-  padding: 4px;
   width: 100%;
   border: solid rgba(182, 209, 235, 0.75) .8px;
   border-radius: 3px;
   height: 30px;
   margin-top: 6px;
+  padding: 4px 0 4px 3px;
 }
 
 .update-todo {
-  margin-top: 6px;
+  margin-top: 8px;
 }
