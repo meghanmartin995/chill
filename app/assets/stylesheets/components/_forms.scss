@@ -99,12 +99,12 @@ abbr {
 }
 
 #title-todo input {
-  font-size: 18px;
+  font-size: 17px;
   width: 100%;
   border: solid rgba(182, 209, 235, 0.75) .8px;
   border-radius: 3px;
   font-weight: bold;
-  padding: 4px 0 4px 12px;
+  padding: 4px 0 4px 0px;
 }
 
 #description-todo input {
@@ -113,5 +113,9 @@ abbr {
   border: solid rgba(182, 209, 235, 0.75) .8px;
   border-radius: 3px;
   height: 30px;
+  margin-top: 6px;
+}
+
+.update-todo {
   margin-top: 6px;
 }
