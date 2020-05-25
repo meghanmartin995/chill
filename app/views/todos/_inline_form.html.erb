@@ -1,13 +1,13 @@
-<%= form_with model: todo, class: 'divTableRow', id: dom_id(todo, 'inline_form') do |form| %>
- <div class="divTableCell">
+<%= form_with model: todo, id: dom_id(todo, 'inline_form') do |form| %>
+ <div class="todo-title" id="title-todo">
     <%= form.text_field :title %>
   </div>
 
-  <div class="divTableCell">
+  <div class="todo-description" id="description-todo">
     <%= form.text_field :description %>
   </div>
 
-  <div class="divTableCell">
+  <div style="display: none">
     <%= form.submit %>
   </div>
 <% end %>
