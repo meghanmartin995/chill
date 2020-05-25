@@ -1,8 +1,13 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [ :show, :destroy ]
+  # skip_after_action :verify_authorized
   skip_before_action :verify_authenticity_token
+
   def index
-    @topics = policy_scope(Topic).order(created_at: :desc).where(user: current_user)
+    # @topics = policy_scope(Topic).order(created_at: :desc).where(user: current_user)
+    skip_policy_scope
+    # @topics = current_user.topics.all
+    @topics = Topic.where(user: current_user)
     @topic = Topic.new
   end
 
@@ -37,7 +42,7 @@ class TopicsController < ApplicationController
   end
 
   def set_topic
-    @topic = current_user.topics
+    @topic = Topic
              .includes(columns: :todos)
              .order('columns.id, todos.position ASC')
              .find(params[:id])

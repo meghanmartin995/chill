@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :columns, except: [:index, :show, :new] do
       resources :todos, except: [:index, :show, :new]
     end
+    resources :collaborators, only: [:create, :show, :destroy]
   end
   resources :resources, only: :destroy
 

@@ -52,5 +52,12 @@
   <%end %>
 </div>
 
+<%= form_with url: topic_collaborators_path(@topic), local: true do |form| %>
+  <%= form.text_field :email %>
+  <%= form.submit 'Invite Collaborator' %>
+<% end %>
+
+<%#= link_to "Leave List", [@list, :collaborator], method: :delete %>
+
 
 <%#= link_to "Resources", resource_path(@topic) %>

@@ -51,7 +51,6 @@ class TodosController < ApplicationController
       respond_to do |format|
         format.html { redirect_to @topic, notice: 'Todo was successfully updated.' }
         format.json {}
-          # format.js {}
       end
     else
       raise
