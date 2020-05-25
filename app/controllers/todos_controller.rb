@@ -45,12 +45,15 @@ class TodosController < ApplicationController
         @topic.todos.find(id).update(position: index + 1)
       end
     end
+
     if @todo.update(todo_params)
+
       respond_to do |format|
         format.html { redirect_to @topic, notice: 'Todo was successfully updated.' }
         format.json {}
       end
     else
+      raise
       render :edit
     end
   end

@@ -9,8 +9,10 @@
       <% end %>
     </div>
     <p> <%= todo.description %> </p>
-    <%= link_to edit_todo_path(todo) do %>
-      <i class="fas fa-pencil-alt"></i>
+    <%= content_tag :i, id: dom_id(todo) do %>
+      <%= link_to edit_todo_path(todo), remote: true do %>
+        <i class="fas fa-pencil-alt"></i>
+      <% end %>
     <% end %>
   </div>
 <% end %>
