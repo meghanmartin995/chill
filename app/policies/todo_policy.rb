@@ -14,11 +14,11 @@ class TodoPolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_creator?
+    true
   end
 
   def destroy?
-    user_is_creator?
+    true
   end
 
   private

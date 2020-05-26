@@ -1,5 +1,5 @@
 
-<%= content_tag :div, class: :todorow, data: { controller: 'draggable' } do %>
+<%= content_tag :div, class: :todorow, data: { "topic-channel-id": @topic.id, controller: 'topic-channel draggable' } do %>
 
   <div class="container-content">
     <div class="container-todos">
@@ -14,8 +14,8 @@
               <% end %>
             </div>
             <div class='todos'>
-              <%= content_tag :ul, class: 'card-text dropzone', data: { id: column.id, target: 'draggable.column' } do %>
-                <%= render column.todos, todo: @todo, column: column %>
+              <%= content_tag :ul, class: 'card-text dropzone', id: dom_id(column), data: { id: column.id, target: 'draggable.column' } do %>
+                <%= render column.todos, topic: @topic, column: column %>
               <% end %>
             </div>
               <%= simple_form_for [@topic, column, @todo], html: { autocomplete: 'off' }, remote: true do |f| %>

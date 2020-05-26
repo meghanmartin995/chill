@@ -1,19 +1,20 @@
-<%= content_tag :li, data: { target: 'draggable.todo',
+<%= content_tag :li, id: dom_id(todo), data: { target: 'draggable.todo',
                               id: todo.id,
-                              url: topic_column_todo_path(@topic, column, todo) } do %>
+                              url: topic_column_todo_path(topic, column, todo) } do %>
   <div class="todocard">
    <div class="todo-title" id="todo-content">
       <h3 id="todo-title"> <%= todo.title %> </h3>
-        <%= button_to [@topic, column, todo], method: :delete do %>
+      <%#= link_to 'delete', [topic, column, todo], method: :delete %>
+        <%= button_to [topic, column, todo], method: :delete do %>
           <i class="fas fa-times"></i>
         <% end %>
     </div>
     <p id="todo-description"> <%= todo.description %> </p>
-    <%= content_tag :i, id: dom_id(todo) do %>
-      <%= link_to edit_todo_path(todo), remote: true do %>
-        <i class="fas fa-pencil-alt"></i>
-      <% end %>
-    <% end %>
+    <%#= content_tag :i, id: dom_id(todo) do %>
+      <%#= link_to edit_todo_path(todo), remote: true do %>
+        <!-- <i class="fas fa-pencil-alt"></i> -->
+      <%# end %>
+    <%# end %>
   </div>
 <% end %>
 

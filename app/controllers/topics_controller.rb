@@ -16,6 +16,7 @@ class TopicsController < ApplicationController
     # @resource = Resource.new
     @todo = Todo.new
     @column = Column.new
+    #@topic = Topic.find(params[:topic_id])
   end
 
   def create
